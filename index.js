@@ -26,6 +26,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, "dist")));
 
 // database connection
 mongoose
@@ -180,7 +181,6 @@ app.get("/tracking/:userid/:date", async (req, res) => {
 });
 
   
-  app.use(express.static(path.join(__dirname, "dist")));
   // starting the server
   app.listen(port, () => {
     console.log(`Server up and running on port: ${port}`);
